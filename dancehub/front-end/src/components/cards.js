@@ -5,7 +5,7 @@ import sample from '../assets/sample.jpg';
 
 const cardsData = [
   {
-    title: "coprate ",
+    title: "corprate ",
     imageUrl: sample,
     description: "At Empire Dance Kenya, we specialize in bringing the joy of dance and the benefits of fitness to corporate environments. Our corporate dance programs are designed to enhance employee well-being, foster team spirit, and provide exceptional entertainment for your events.",
     link: "#",
