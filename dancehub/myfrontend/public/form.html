@@ -1,0 +1,40 @@
+< !DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Circular Waveform</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <canvas id="waveformCanvas"></canvas>
+            <div class="form-container">
+                <div id="loginForm" class="form-side active">
+                    <h2>Login</h2>
+                    <input type="email" class="input" placeholder="Username / Email" />
+                    <input type="password" class="input" placeholder="Password" />
+                    <button class="button">Login</button>
+                </div>
+                <div id="signUpForm" class="form-side">
+                    <h2>Sign Up</h2>
+                    <input type="text" class="input" placeholder="Username" />
+                    <input type="email" class="input" placeholder="Email" />
+                    <input type="password" class="input" placeholder="Password" />
+                    <button class="button">Sign Up</button>
+                </div>
+                <div id="forgotPasswordForm" class="form-side">
+                    <h2>Forgot Password</h2>
+                    <input type="email" class="input" placeholder="Enter your email" />
+                    <button class="button">Submit</button>
+                </div>
+                <button class="switch-button" id="switchButton">Don't have an account? Sign Up</button>
+                <a id="forgotPasswordLink" href="#">Forgot Password?</a>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+
+    </html>
