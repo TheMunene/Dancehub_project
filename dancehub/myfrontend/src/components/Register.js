@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from '../assets/logo.png'
 import axios from 'axios';
 
 const Register = () => {
@@ -20,17 +21,17 @@ const Register = () => {
                 last_name: lastName
             });
             if (response.status === 201) {
-                setMessage('User registered successfully');
+                setMessage('Registered successfully login below');
             }
         } catch (error) {
-            setMessage('Failed to register user');
+            setMessage('Failed to register user: ' + error.response?.data?.detail || error.message);
         }
     };
 
     return (
         <div className=" flex items-center relative justify-center overflow-x-hidden ">
-            <img className="" src={logo} />
-            <form action="service" method="POST" onSubmit={handleSubmit}>
+            <img className="" alt='logo' src={logo} />
+            <form action="#" method="POST" onSubmit={handleSubmit}>
                 <input type="hidden" name="_token" value="7DTUeYngmjEirGGRwMJ7mAPKCFfKQ90Q1tcleqRf" autocomplete="off" />
 
                 <div class="relative 2xl:mb-8 xl:mb-4 lg:mb-4 md:mb-4 mb-4">
@@ -49,7 +50,7 @@ const Register = () => {
 
                 <div class="relative 2xl:mb-8 xl:mb-6 lg:mb-6 md:mb-6 mb-4">
                     <label class="flex items-center mb-2 text-gray-600 text-sm font-medium">Email</label>
-                    <input type="text" name="email" id="default-search"
+                    <input type="text" name="email" id="default-search" value={email} onChange={(e) => setEmail(e.target.value)}
                         class="block w-full h-12 px-5 py-3 text-base leading-8 font-normal shadow-sm text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none"
                         placeholder="Enter your email.." required />
                 </div>
@@ -73,6 +74,10 @@ const Register = () => {
                     Register
                 </button>
 
+                <div>
+                    {message && <p>{message}</p>}
+                </div>
+
                 <p class="text-center">
                     <a href="/login" class="font-normal text-base leading-7 text-indigo-600 text-right w-full">
                         Already have an account?
@@ -82,5 +87,5 @@ const Register = () => {
 
         </div>
     );
-}
+};
 export default Register

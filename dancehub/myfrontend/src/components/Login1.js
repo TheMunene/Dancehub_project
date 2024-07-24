@@ -8,6 +8,7 @@ const Login1 = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const { setToken } = useAuth();
+    const [message, setmessage] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -17,9 +18,13 @@ const Login1 = () => {
             setToken(response.data.access);
             navigate('/protected');
         } catch (error) {
-            console.error('Login failed:', error);
+            setmessage('Login failed: ' + error.response?.data?.detail || error.message);
         }
     };
+
+    const red = {
+        color: 'red'
+    }
 
     return (
         <div className="flex flex-1 flex-col bg-slate-100 justify-center px-6 py-12 lg:px-8">
@@ -37,7 +42,7 @@ const Login1 = () => {
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form action="#" method="POST" className="space-y-6" onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
                             Username
                         </label>
                         <div className="mt-2">
@@ -88,10 +93,13 @@ const Login1 = () => {
                         </button>
                     </div>
                 </form>
+                <div style={red}>
+                    {message && <p>{message}</p>}
+                </div>
 
                 <p className="mt-10 text-center text-sm text-gray-500">
                     Not a member?{' '}
-                    <a href="#" className="font-semibold leading-6 text-orange-500 hover:text-black">
+                    <a href="/register" className="font-semibold leading-6 text-orange-500 hover:text-black">
                         sign up to get an account
                     </a>
                 </p>

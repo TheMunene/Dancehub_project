@@ -35,18 +35,18 @@ const App = () => {
                 <Route path="/signup" element={<SignUp1 />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/about" element={<AboutPage />} />
-                <Route path="/service" element={<ServicesPage />} />
+                {/* <Route path="/service" element={<ServicesPage />} /> */}
                 <Route path="/form" element={<FormIframe />} />
                 <Route path="/customercard" element={<CustomerCards />} />
                 <Route path="/choreographer" element={<Choreographers />} />
                 <Route path="/testimonial" element={<Testimonials />} />
                 <Route path="/login" element={<Login setToken={setToken} />} />
                 <Route 
-                Testimonials    path="/protected" 
+                    path="/protected" 
                     element={
                         <ProtectedRoute>
-                            <div>Protected Content</div>
-                            <Route path="/choreographer" element={<Choreographers />} /></ProtectedRoute>
+                            <ServicesPage />
+                        </ProtectedRoute>
                     } 
                 />
                 <Route path="*" element={<Navigate to="/login" />} />
