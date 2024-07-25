@@ -22,7 +22,7 @@ import ServicesPage from './pages/services';
 
 const ProtectedRoute = ({ children }) => {
     const { token } = useAuth();
-    return token ? children : <Navigate to="/login" />;
+    return token ? children : <Navigate to="/service" />;
 };
 
 const App = () => {
@@ -35,7 +35,7 @@ const App = () => {
                 <Route path="/signup" element={<SignUp1 />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/about" element={<AboutPage />} />
-                {/* <Route path="/service" element={<ServicesPage />} /> */}
+                <Route path="/service" element={<ServicesPage />} />
                 <Route path="/form" element={<FormIframe />} />
                 <Route path="/customercard" element={<CustomerCards />} />
                 <Route path="/choreographer" element={<Choreographers />} />
@@ -45,7 +45,7 @@ const App = () => {
                     path="/protected" 
                     element={
                         <ProtectedRoute>
-                            <ServicesPage />
+                            welcome
                         </ProtectedRoute>
                     } 
                 />
